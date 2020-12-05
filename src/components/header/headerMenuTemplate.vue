@@ -1,23 +1,25 @@
-<template lang="pug">
-  .app-menu
-    .app-menu__item(v-for="item in headerPanelMenu")
-      .app-menu__item-text(@click="goToRoute(item.route)")  {{ item.name }}
+<template>
+  <div class="app-menu">
+    <div class="app-menu__item"
+         v-for="item in headerPanelMenu" :key="item.id">
+        <headerMenuItem  :item="item"/>
+    </div>
+  </div>
 </template>
 
 <script>
 import headerPanelMenu from '@/constants/headerMenu';
+import headerMenuItem from '@/components/header/headerMenuItem.vue';
 
 export default {
   name: 'HeaderMenuTemplate',
+  components: {
+    headerMenuItem,
+  },
   data() {
     return {
       headerPanelMenu,
     };
-  },
-  methods: {
-    goToRoute(name) {
-      this.$router.push(name);
-    },
   },
 };
 </script>

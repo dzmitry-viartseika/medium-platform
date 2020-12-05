@@ -1,9 +1,14 @@
-<template lang="pug">
-  .app-header
-    .app-header-logo
-      .app-header-logo__text(@click="goToRoute()") Conduit
-    .app-header-menu
-      header-menu-template
+<template>
+  <div class="app-header">
+    <div class="app-header-logo">
+      <div class="app-header-logo__text" click="goToRoute()">
+        Conduit
+      </div>
+    </div>
+    <div class="app-header-menu">
+      <header-menu-template/>
+    </div>
+  </div>
 </template>
 
 <script>

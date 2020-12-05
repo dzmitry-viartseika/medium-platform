@@ -1,8 +1,10 @@
-<template lang="pug">
-  .app
-    .app__container
-      header-template
-      router-view
+<template>
+  <div class="app">
+    <div class="app__container">
+      <header-template></header-template>
+      <router-view></router-view>
+    </div>
+  </div>
 </template>
 
 <script>

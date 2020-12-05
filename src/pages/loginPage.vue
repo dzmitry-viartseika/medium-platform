@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import ButtonTemplate from '@/components/elements/buttonTemplate';
+import ButtonTemplate from '@/components/elements/buttonTemplate.vue';
 import authApi from '@/api/auth/authApi';
 
 export default {

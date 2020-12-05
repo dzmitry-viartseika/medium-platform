@@ -1,7 +1,11 @@
-<template lang="pug">
-  button.app-button(@click="buttonSettings.buttonClickEvent")
-    i(v-if="buttonSettings.icon")
-    span {{ buttonSettings.buttonText }}
+<template>
+  <button class="app-button" @click="buttonSettings.buttonClickEvent">
+    <i v-if="buttonSettings.icon">
+    </i>
+    <span>
+        {{ buttonSettings.buttonText }}
+      </span>
+  </button>
 </template>
 
 <script>
