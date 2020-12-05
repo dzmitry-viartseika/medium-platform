@@ -1,15 +1,24 @@
 <template>
   <div class="app-menu">
-    <div class="app-menu__item"
-         v-for="item in headerPanelMenu" :key="item.id">
+    <template v-if="!userInfo">
+      <div class="app-menu__item"
+           v-for="item in headerPanelMenu" :key="item.id">
         <headerMenuItem  :item="item"/>
-    </div>
+      </div>
+    </template>
+    <template v-else>
+      <div class="app-menu__item"
+           v-for="item in headerPanelMenuLogged" :key="item.id">
+        <headerMenuItem  :item="item"/>
+      </div>
+    </template>
   </div>
 </template>
 
 <script>
 import headerPanelMenu from '@/constants/headerMenu';
 import headerMenuItem from '@/components/header/headerMenuItem.vue';
+import headerPanelMenuLogged from '@/constants/headerMenuLogged';
 
 export default {
   name: 'HeaderMenuTemplate',
@@ -19,7 +28,18 @@ export default {
   data() {
     return {
       headerPanelMenu,
+      headerPanelMenuLogged,
     };
+  },
+  computed: {
+    userInfo: {
+      get() {
+        return this.$store.getters.userInfo;
+      },
+      set(data) {
+        this.$store.dispatch('setUserInfo', data);
+      },
+    },
   },
 };
 </script>

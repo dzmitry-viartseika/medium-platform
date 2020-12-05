@@ -2,17 +2,64 @@
   <div class="app-account">
     <h1 class="app-account__title">Sign Up</h1>
     <div class="app-account__link" @click="goToRoute()">Have an account?</div>
-    <div class="app-account-field"><input class="app-input" type="text" placeholder="Username" v-model="user.username" :errorStatus="$validator.errors.has('username')" :class="{'error': $validator.errors.has('username')}" />
-      <transition name="fade-el"><span class="app__validation" v-if="$validator.errors.has('username')">{{ $validator.errors.first('username') }}</span></transition>
-      <transition name="fade-el"><span class="app__validation" v-if="validationMessage.status &amp;&amp; validationMessage.username !== ''">{{ validationMessage.username }}</span></transition>
+    <div class="app-account-field">
+      <input class="app-input"
+             type="text" placeholder="Username"
+             v-model="user.username"
+             :errorStatus="$validator.errors.has('username')"
+             :class="{'error': $validator.errors.has('username')}" />
+      <transition name="fade-el">
+        <span class="app__validation"
+              v-if="$validator.errors.has('username')">
+          {{ $validator.errors.first('username') }}
+        </span>
+      </transition>
+      <transition name="fade-el">
+        <span class="app__validation"
+              v-if="validationMessage.status && validationMessage.username !== ''">
+          {{ validationMessage.username }}
+        </span>
+      </transition>
     </div>
-    <div class="app-account-field"><input class="app-input" type="text" placeholder="Login" v-model="user.email" :errorStatus="$validator.errors.has('email')" :class="{'error': $validator.errors.has('email')}" />
-      <transition name="fade-el"><span class="app__validation" v-if="$validator.errors.has('email')">{{ $validator.errors.first('email') }}</span></transition>
-      <transition name="fade-el"><span class="app__validation" v-if="validationMessage.status &amp;&amp; validationMessage.email !== ''">{{ validationMessage.email }}</span></transition>
+    <div class="app-account-field">
+      <input class="app-input"
+             type="text"
+             placeholder="Login"
+             v-model="user.email"
+             :errorStatus="$validator.errors.has('email')"
+             :class="{'error': $validator.errors.has('email')}" />
+      <transition name="fade-el">
+        <span class="app__validation"
+              v-if="$validator.errors.has('email')">
+          {{ $validator.errors.first('email') }}
+        </span>
+      </transition>
+      <transition name="fade-el">
+        <span class="app__validation"
+              v-if="validationMessage.status && validationMessage.email !== ''">
+          {{ validationMessage.email }}
+        </span>
+      </transition>
     </div>
-    <div class="app-account-field"><input class="app-input" type="password" placeholder="Password" v-model="user.password" :errorStatus="$validator.errors.has('password')" :class="{'error': $validator.errors.has('password')}" />
-      <transition name="fade-el"><span class="app__validation" v-if="$validator.errors.has('password')">{{ $validator.errors.first('password') }}</span></transition>
-      <transition name="fade-el"><span class="app__validation" v-if="validationMessage.status &amp;&amp; validationMessage.password !== ''">{{ validationMessage.password }}</span></transition>
+    <div class="app-account-field">
+      <input class="app-input"
+             type="password"
+             placeholder="Password"
+             v-model="user.password"
+             :errorStatus="$validator.errors.has('password')"
+             :class="{'error': $validator.errors.has('password')}"
+      />
+      <transition name="fade-el">
+        <span class="app__validation" v-if="$validator.errors.has('password')">
+          {{ $validator.errors.first('password') }}
+        </span>
+      </transition>
+      <transition name="fade-el">
+        <span class="app__validation"
+              v-if="validationMessage.status && validationMessage.password !== ''">
+          {{ validationMessage.password }}
+        </span>
+      </transition>
     </div>
     <div class="app-account-btn" :class="position">
       <button-template :buttonSettings="buttonSettings"></button-template>
@@ -21,7 +68,7 @@
 </template>
 
 <script>
-import ButtonTemplate from '@/components/elements/buttonTemplate';
+import ButtonTemplate from '@/components/elements/buttonTemplate.vue';
 import authApi from '@/api/auth/authApi';
 
 export default {
@@ -50,7 +97,7 @@ export default {
         return this.$store.getters.userInfo;
       },
       set(data) {
-        this.$store.getters.userInfo = data;
+        this.$store.dispatch('setUserInfo', data);
       },
     },
     buttonSettings() {

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import HeaderMenuTemplate from '@/components/header/headerMenuTemplate';
+import HeaderMenuTemplate from '@/components/header/headerMenuTemplate.vue';
 
 export default {
   name: 'HeaderTemplate',

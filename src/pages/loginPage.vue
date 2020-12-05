@@ -75,7 +75,7 @@ export default {
         return this.$store.getters.userInfo;
       },
       set(data) {
-        this.$store.getters.userInfo = data;
+        this.$store.dispatch('setUserInfo', data);
       },
     },
     buttonSettings() {
