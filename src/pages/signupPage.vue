@@ -2,7 +2,7 @@
   <div class="app-account">
     <h1 class="app-account__title">Sign Up</h1>
     <div class="app-account__link" @click="goToRoute()">Have an account?</div>
-    <div class="app-account-field">
+    <div class="app-field">
       <input class="app-input"
              type="text" placeholder="Username"
              v-model="user.username"
@@ -21,7 +21,7 @@
         </span>
       </transition>
     </div>
-    <div class="app-account-field">
+    <div class="app-field">
       <input class="app-input"
              type="text"
              placeholder="Login"
@@ -41,7 +41,7 @@
         </span>
       </transition>
     </div>
-    <div class="app-account-field">
+    <div class="app-field">
       <input class="app-input"
              type="password"
              placeholder="Password"

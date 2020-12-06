@@ -1,7 +1,7 @@
 <template>
   <div class="app-header">
     <div class="app-header-logo">
-      <div class="app-header-logo__text" click="goToRoute()">
+      <div class="app-header-logo__text" @click="goToRoute()">
         Conduit
       </div>
     </div>
@@ -13,6 +13,7 @@
 
 <script>
 import HeaderMenuTemplate from '@/components/header/headerMenuTemplate.vue';
+import authApi from '@/api/auth/authApi';
 
 export default {
   name: 'HeaderTemplate',
@@ -21,6 +22,27 @@ export default {
     checkHomeRoute() {
       return this.$route.name !== 'home';
     },
+    userInfo: {
+      get() {
+        return this.$store.getters.userInfo;
+      },
+      set(data) {
+        this.$store.dispatch('setUserInfo', data);
+      },
+    },
+  },
+  beforeMount() {
+    const jwtToken = localStorage.getItem('jwtToken');
+    if (jwtToken) {
+      authApi.getUserInfo().then((resp) => {
+        const { user } = resp.data;
+        this.userInfo = user;
+      }).catch((e) => {
+        console.error(e);
+      });
+    } else {
+      this.$router.push('/login');
+    }
   },
   methods: {
     goToRoute() {

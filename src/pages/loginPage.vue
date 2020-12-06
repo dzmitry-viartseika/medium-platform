@@ -9,7 +9,7 @@
     >
       Need an account?
     </div>
-    <div class="app-account-field">
+    <div class="app-field">
       <input
         v-model="user.email"
         class="app-input"
@@ -25,7 +25,7 @@
         >{{ $validator.errors.first('email') }}</span>
       </transition>
     </div>
-    <div class="app-account-field">
+    <div class="app-field">
       <input
         v-model="user.password"
         class="app-input"

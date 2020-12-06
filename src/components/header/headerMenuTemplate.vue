@@ -1,6 +1,6 @@
 <template>
   <div class="app-menu">
-    <template v-if="!userInfo">
+    <template v-if="!Object.keys(userInfo).length">
       <div class="app-menu__item"
            v-for="item in headerPanelMenu" :key="item.id">
         <headerMenuItem  :item="item"/>
@@ -49,6 +49,7 @@ export default {
 
 .app-menu {
   display: flex;
+  align-items: center;
 
   &__item {
     cursor: pointer;

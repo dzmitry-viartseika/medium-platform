@@ -9,7 +9,7 @@
 
 <script>
 
-import HeaderTemplate from '@/components/header/headerTemplate';
+import HeaderTemplate from '@/components/header/headerTemplate.vue';
 
 export default {
   name: 'App',

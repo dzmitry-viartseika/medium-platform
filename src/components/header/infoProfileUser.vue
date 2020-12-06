@@ -1,7 +1,12 @@
 <template>
   <div>
     <div class="app-info-profile">
-      <img :src="userPhoto" alt="" class="app-info-profile__photo">
+      <template v-if="userPhoto">
+        <img :src="userPhoto" alt="" class="app-info-profile__photo">
+      </template>
+      <template v-else>
+        <div class="app-info-profile__circle"></div>
+      </template>
       <div class="app-info-profile__firstname">
         {{ userFirstname }}
       </div>
@@ -36,5 +41,22 @@ export default {
 
 <style scoped lang="scss">
 @import "../../assets/scss/variables";
+  .app-info-profile {
+    display: flex;
+    align-items: center;
+    cursor: default;
 
+    img {
+      max-width: 30px;
+      height: auto;
+      object-fit: cover;
+    }
+
+    &__circle {
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      background: $colorBtn;
+    }
+  }
 </style>

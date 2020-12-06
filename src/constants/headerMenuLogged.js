@@ -19,7 +19,6 @@ const headerPanelMenuLogged = [
   {
     id: 4,
     name: 'Settings',
-    route: 'profile',
     display: 'image',
   },
 ];

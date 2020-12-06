@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import homePage from '@/pages/homePage.vue';
 import signupPage from '@/pages/signupPage.vue';
 import loginPage from '@/pages/loginPage.vue';
+import settings from '@/pages/settings.vue';
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/',
     name: 'home',
     component: homePage,
+  },
+  {
+    path: '/settings',
+    name: 'settings',
+    component: settings,
   },
   // {
   //   path: '/about',

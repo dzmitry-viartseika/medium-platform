@@ -13,6 +13,17 @@ export default {
     });
     return instWithCred.get('/user');
   },
+  updateUser(user) {
+    console.log('user', user);
+    const jwtToken = localStorage.getItem('jwtToken');
+    const instWithCred = axios.create({
+      headers: {
+        authorization: `Token ${jwtToken}`,
+      },
+      baseURL: domain.AUTH_API,
+    });
+    return instWithCred.put('/user', user);
+  },
   createNewUser(user) {
     const instWithCred = axios.create({
       baseURL: domain.AUTH_API,
