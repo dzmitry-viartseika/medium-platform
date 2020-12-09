@@ -11,6 +11,11 @@ body {
     max-width: 1400px;
     margin: 0 auto;
   }
+
+  &__wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+  }
 }
 
 .app__validation {

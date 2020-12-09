@@ -4,6 +4,7 @@ import homePage from '@/pages/homePage.vue';
 import signupPage from '@/pages/signupPage.vue';
 import loginPage from '@/pages/loginPage.vue';
 import settings from '@/pages/settings.vue';
+import articlePage from '@/pages/articlePage.vue';
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,11 @@ const routes = [
     path: '/settings',
     name: 'settings',
     component: settings,
+  },
+  {
+    path: '/article',
+    name: 'articlePage',
+    component: articlePage,
   },
   // {
   //   path: '/about',

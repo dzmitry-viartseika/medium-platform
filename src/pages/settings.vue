@@ -1,6 +1,6 @@
 <template>
   <div class="app-settings">
-    <div class="app-settings__container">
+    <div class="app__wrapper">
       <div class="app-field">
         <input class="app-input" v-model="userInfo.image"
                type="text"
@@ -80,8 +80,7 @@ export default {
   },
   methods: {
     updateUser() {
-      authApi.updateUser(this.user).then((resp) => {
-        console.log('resp', resp.data);
+      authApi.updateUser(this.userInfo).then((resp) => {
         const { user } = resp.data;
         this.userInfo = user;
       }).catch((e) => {
@@ -105,11 +104,6 @@ export default {
       padding-bottom: 15px;
       border-bottom: 1px solid $borderColor;
       margin-bottom: 15px;
-    }
-
-    &__container {
-      max-width: 600px;
-      margin: 0 auto;
     }
   }
 </style>

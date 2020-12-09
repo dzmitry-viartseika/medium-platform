@@ -41,6 +41,7 @@ export default {
 
 <style scoped lang="scss">
 @import "../../assets/scss/variables";
+
   .app-info-profile {
     display: flex;
     align-items: center;
@@ -48,8 +49,9 @@ export default {
 
     img {
       max-width: 30px;
-      height: auto;
+      height: 30px;
       object-fit: cover;
+      border-radius: 50%;
     }
 
     &__circle {
@@ -57,6 +59,10 @@ export default {
       width: 30px;
       height: 30px;
       background: $colorBtn;
+    }
+
+    &__firstname {
+      margin-left: 5px;
     }
   }
 </style>
