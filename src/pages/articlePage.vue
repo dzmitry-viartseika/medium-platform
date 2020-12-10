@@ -3,7 +3,6 @@
     <div class="app__wrapper">
       <div class="app-field">
         <input class="app-input" v-model="article.title"
-               autofocus
                type="text"
                placeholder="Article title">
       </div>
