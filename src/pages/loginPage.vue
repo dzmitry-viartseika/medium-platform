@@ -120,7 +120,6 @@ export default {
             console.log('e.response.data.errors', e.response.data.errors);
             const text = e.response.data.errors;
             console.log('text', text);
-
             this.validationMessage = {
               status: true,
               text: ['email or password'],

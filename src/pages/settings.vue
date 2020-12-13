@@ -84,7 +84,7 @@ export default {
         const { user } = resp.data;
         this.userInfo = user;
       }).catch((e) => {
-        console.log(e);
+        console.log('e', e.response.data.errors.username);
       });
     },
     logOut() {

@@ -79,6 +79,10 @@ export default {
     "left left left right";
     grid-gap: 1em;
 
+    &-preview {
+      margin-top: 20px;
+    }
+
     &__left {
       grid-area: left;
     }

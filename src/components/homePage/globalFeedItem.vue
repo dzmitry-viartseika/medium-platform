@@ -12,8 +12,26 @@
             {{ createdDate }}
           </div>
         </div>
-        <div class="app-preview-header__follow"></div>
+        <div class="app-preview-header__follow">
+          {{ favoritesCount }}
+        </div>
       </div>
+      <div class="app-preview-content">
+        <div class="app-preview-content__title">
+          {{ title }}
+        </div>
+        <div class="app-preview-content__text">
+          {{ description }}
+        </div>
+      </div>
+    <div class="app-preview-footer">
+      <div class="app-preview-footer__btn">Read more</div>
+      <div class="app-preview-footer__tags">
+        <div class="app-preview-footer__tags-item" v-for="tag in tags" :key="tag">
+          {{ tag }}
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -42,6 +60,18 @@ export default {
     createdDate() {
       return moment(this.createdAt).format('LL');
     },
+    title() {
+      return get(this.item, 'title', '');
+    },
+    description() {
+      return get(this.item, 'description', '');
+    },
+    favoritesCount() {
+      return get(this.item, 'favoritesCount', '');
+    },
+    tags() {
+      return get(this.item, 'tagList', []);
+    },
   },
 };
 </script>
@@ -50,8 +80,12 @@ export default {
 @import "./src/assets/scss/variables";
 
 .app-preview {
+  margin-bottom: 20px;
+  border-bottom: 1px solid $colorTags;
+  padding-bottom: 20px;
 
   &-header {
+    display: flex;
 
     &__img {
 
@@ -60,6 +94,67 @@ export default {
         height: 32px;
         object-fit: cover;
         border-radius: 50%;
+      }
+    }
+
+    &__info {
+      margin-left: 20px;
+
+      &-date {
+        font-size: $font-size-sm;
+      }
+
+      &-username {
+        font-size: $font-size-base;
+        color: $colorBtn;
+        cursor: pointer;
+        transition: opacity .15s ease-in;
+        margin-bottom: 2px;
+
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+
+    &__follow {
+      width: 50px;
+      display: flex;
+      margin-left: auto;
+    }
+  }
+
+  &-content {
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    &__title {
+      font: $font-size-lg $font-global-bold;
+      margin-bottom: 5px;
+    }
+
+    &__text {
+      font-size: $font-size-sm;
+      color: $borderColor;
+    }
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: space-between;
+
+    &__tags {
+      display: flex;
+
+      &-item {
+        padding: 3px;
+        background: $colorTags;
+        color: $color-white;
+
+        & + .app-preview-footer__tags-item {
+          margin-left: 5px;
+          border-radius: $borderRadiusSmall;
+        }
       }
     }
   }
