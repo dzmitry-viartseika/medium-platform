@@ -1,34 +1,90 @@
 <template>
-  <h1>
-    homepage
-    {{ tagsList }}
-  </h1>
+  <div class="app-main">
+      <div class="app-main__left">
+        <tabTemplate :tabList="tabList" :activeTab="activeTab" @setActiveTab="setActiveTab"/>
+        <div class="app-main-preview">
+          <myFeed v-if="activeTab === 'Your Feed'"/>
+          <globalFeeds :globalArticles="globalArticles" v-else/>
+        </div>
+      </div>
+      <div class="app-main__right">
+        <tagsTemplate :tagsList="tagsList" @clickEvent="clickEvent"/>
+      </div>
+  </div>
 </template>
 
 <script>
 
-import tagsApi from '@/api/tags/tags/tagsApi';
+import tagsApi from '@/api/tags/tagsApi';
+import tagsTemplate from '@/components/homePage/tagsTemplate.vue';
+import tabTemplate from '@/components/homePage/tabTemplate.vue';
+import myFeed from '@/components/homePage/myFeed.vue';
+import globalFeeds from '@/components/homePage/globalFeeds.vue';
+import articlesApi from '@/api/articles/articlesApi';
 
 export default {
   name: 'HomePage',
+  components: {
+    tagsTemplate,
+    tabTemplate,
+    globalFeeds,
+    myFeed,
+  },
   data() {
     return {
       tagsList: [],
+      tabList: ['Your Feed', 'Global Feed'],
+      activeTab: 'Your Feed',
+      globalArticles: {},
     };
   },
   beforeMount() {
-    console.log('123');
-    tagsApi.getTagsList((resp) => {
-      console.log('wer');
-      console.log('resp', resp);
+    tagsApi.getTagsList().then((resp) => {
       this.tagsList = resp.data.tags;
     }).catch((e) => {
       console.log(e);
     });
   },
+  methods: {
+    clickEvent(tag) {
+      console.log('tag', tag);
+    },
+    setActiveTab(tab) {
+      this.activeTab = tab;
+      if (tab === 'Your Feed') {
+        console.log('wertey');
+      } else {
+        this.getAllGlobalArticles();
+      }
+    },
+    getAllGlobalArticles() {
+      console.log('wertey');
+      articlesApi.getAllGlobalArticles().then((resp) => {
+        console.log('resp', resp.data);
+        this.globalArticles = resp.data;
+      }).catch((e) => {
+        console.error(e);
+      });
+    },
+  },
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import "./src/assets/scss/variables";
 
+  .app-main {
+    display: grid;
+    grid-template-areas:
+    "left left left right";
+    grid-gap: 1em;
+
+    &__left {
+      grid-area: left;
+    }
+
+    &__right {
+      grid-area: right;
+    }
+  }
 </style>

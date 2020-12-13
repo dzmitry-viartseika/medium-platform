@@ -15,7 +15,7 @@ export default {
   },
   updateUser(user) {
     console.log('user', user);
-    const jwtToken = localStorage.getItem('jwtToken');
+    const jwtToken = JSON.parse(localStorage.getItem('jwtToken'));
     const instWithCred = axios.create({
       headers: {
         authorization: `Token ${jwtToken}`,

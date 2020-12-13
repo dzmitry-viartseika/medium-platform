@@ -4,7 +4,11 @@ const axios = require('axios');
 
 export default {
   getTagsList() {
+    const jwtToken = localStorage.getItem('jwtToken');
     const instWithCred = axios.create({
+      headers: {
+        authorization: `Token ${jwtToken}`,
+      },
       baseURL: domain.AUTH_API,
     });
     return instWithCred.get('/tags');
