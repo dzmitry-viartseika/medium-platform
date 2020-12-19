@@ -1,6 +1,5 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import headerTemplate from '@/components/header/headerTemplate.vue';
-import HeaderMenuTemplate from '@/components/header/headerMenuTemplate.vue';
 import VueRouter from 'vue-router';
 import Vuex from 'vuex';
 
@@ -30,8 +29,5 @@ describe('headerTemplate.vue', () => {
     });
     expect(wrapper).toMatchSnapshot();
     expect(wrapper.find('.app-header-logo__text').text()).toBe('Conduit');
-    // const wrapperHeaderMenu = shallowMount(HeaderMenuTemplate);
-    // const div = wrapperHeaderMenu.find('.app-menu');
-    // expect(div.exists()).toBe(true);
   });
 });
