@@ -8,7 +8,7 @@
         </div>
       </div>
       <div class="app-main__right">
-        <tagsTemplate :tagsList="tagsList" @clickEvent="clickEvent"/>
+        <tagsTemplate v-if="tagsList.length" :tagsList="tagsList" @clickEvent="clickEvent"/>
       </div>
   </div>
 </template>
