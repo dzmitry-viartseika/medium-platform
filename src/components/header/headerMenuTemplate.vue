@@ -1,16 +1,18 @@
 <template>
   <div class="app-menu">
-    <template v-if="!Object.keys(userInfo).length">
-      <div class="app-menu__item"
-           v-for="item in headerPanelMenu" :key="item.id">
-        <headerMenuItem  :item="item"/>
-      </div>
-    </template>
-    <template v-else>
-      <div class="app-menu__item"
-           v-for="item in headerPanelMenuLogged" :key="item.id">
-        <headerMenuItem  :item="item"/>
-      </div>
+    <template v-if="typeof userInfo === 'object'">
+      <template v-if="!Object.keys(userInfo).length">
+        <div class="app-menu__item"
+             v-for="item in headerPanelMenu" :key="item.id">
+          <headerMenuItem  :item="item"/>
+        </div>
+      </template>
+      <template v-else>
+        <div class="app-menu__item"
+             v-for="item in headerPanelMenuLogged" :key="item.id">
+          <headerMenuItem  :item="item"/>
+        </div>
+      </template>
     </template>
   </div>
 </template>
@@ -58,11 +60,6 @@ export default {
     &:hover {
       opacity: .8;
     }
-
-    & + .app-menu__item {
-      margin-left: 10px;
-    }
   }
 }
-
 </style>

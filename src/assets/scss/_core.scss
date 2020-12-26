@@ -39,6 +39,10 @@ body {
     resize: none;
     padding: 10px 30px 10px 20px;
   }
+
+  &-menu__item + .app-menu__item {
+    margin-left: 10px;
+  }
 }
 
 .app-account {
@@ -65,3 +69,4 @@ body {
     margin-bottom: 10px;
   }
 }
+
