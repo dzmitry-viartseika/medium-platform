@@ -3,8 +3,10 @@
       <div class="app-main__left">
         <tabTemplate :tabList="tabList" :activeTab="activeTab" @setActiveTab="setActiveTab"/>
         <div class="app-main-preview">
-          <myFeed v-if="activeTab === 'Your Feed'"/>
-          <globalFeeds :globalArticles="globalArticles" v-else/>
+          <myFeed v-if="activeTab === 'Your Feed'" :myArticles="myArticles"/>
+          <globalFeeds :globalArticles="globalArticles"
+                       @getAllGlobalArticles="getAllGlobalArticles"
+                       v-else/>
         </div>
       </div>
       <div class="app-main__right">
@@ -36,6 +38,7 @@ export default {
       tabList: ['Your Feed', 'Global Feed'],
       activeTab: 'Your Feed',
       globalArticles: {},
+      myArticles: {},
     };
   },
   beforeMount() {
@@ -52,16 +55,22 @@ export default {
     setActiveTab(tab) {
       this.activeTab = tab;
       if (tab === 'Your Feed') {
-        console.log('wertey');
+        this.getMyArticles();
       } else {
         this.getAllGlobalArticles();
       }
     },
-    getAllGlobalArticles() {
-      console.log('wertey');
-      articlesApi.getAllGlobalArticles().then((resp) => {
-        console.log('resp', resp.data);
+    getAllGlobalArticles(limit, offset) {
+      this.globalArticles = [];
+      articlesApi.getAllGlobalArticles(limit, offset).then((resp) => {
         this.globalArticles = resp.data;
+      }).catch((e) => {
+        console.error(e);
+      });
+    },
+    getMyArticles(limit, offset) {
+      articlesApi.getAllMyArticles(limit, offset).then((resp) => {
+        this.myArticles = resp.data;
       }).catch((e) => {
         console.error(e);
       });

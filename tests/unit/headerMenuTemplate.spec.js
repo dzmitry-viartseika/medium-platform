@@ -1,6 +1,5 @@
-import { shallowMount, createLocalVue } from '@vue/test-utils';
+import { shallowMount, createLocalVue, render } from '@vue/test-utils';
 import headerMenuTemplate from '@/components/header/headerMenuTemplate.vue';
-import headerMenuItem from '@/components/header/headerMenuItem.vue';
 
 import Vuex from 'vuex';
 
@@ -9,7 +8,7 @@ localVue.use(Vuex);
 const store = new Vuex.Store({});
 
 describe('headerMenuTemplate.vue', () => {
-  it('renders information of headerMenu in the component', () => {
+  test('snapshot', () => {
     const $store = {
       state: {
         userInfo: 1,
@@ -21,11 +20,12 @@ describe('headerMenuTemplate.vue', () => {
     const wrapper = shallowMount(headerMenuTemplate, {
       localVue,
       store,
+      render,
       mocks: {
         $store,
       },
     });
-
-    expect(wrapper.findAllComponents(headerMenuItem).length).toBe(3);
+    expect(wrapper.find('.app-menu')).toBeTruthy();
+    expect(wrapper).toMatchSnapshot();
   });
 });

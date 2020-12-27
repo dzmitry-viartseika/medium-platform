@@ -1,10 +1,13 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import headerTemplate from '@/components/header/headerTemplate.vue';
 import Vuex from 'vuex';
+import VueRouter from 'vue-router';
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
 const store = new Vuex.Store({});
+localVue.use(VueRouter);
+const router = new VueRouter();
 
 describe('headerTemplate.vue', () => {
   test('snapshot', () => {
@@ -19,6 +22,7 @@ describe('headerTemplate.vue', () => {
     const wrapper = shallowMount(headerTemplate, {
       localVue,
       store,
+      router,
       mocks: {
         $store,
       },

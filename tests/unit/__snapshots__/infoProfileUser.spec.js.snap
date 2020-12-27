@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`infoProfileUser.vue snapshot 1`] = `
+<div>
+  <div class="app-info-profile">
+    <div class="app-info-profile__circle"></div>
+    <div class="app-info-profile__firstname">
+
+    </div>
+  </div>
+</div>
+`;

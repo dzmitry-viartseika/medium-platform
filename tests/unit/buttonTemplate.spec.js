@@ -9,7 +9,7 @@ const buttonSettings = {
 };
 
 describe('ButtonTemplate.vue', () => {
-  it('render ButtonTemplate component', () => {
+  test('snapshot', () => {
     const wrapper = shallowMount(ButtonTemplate, {
       propsData: {
         buttonSettings,
@@ -18,5 +18,6 @@ describe('ButtonTemplate.vue', () => {
     expect(wrapper.find('span').text()).toBe(buttonSettings.buttonText);
     const i = wrapper.find('i');
     expect(i.exists()).toBe(false);
+    expect(wrapper).toMatchSnapshot();
   });
 });

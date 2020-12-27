@@ -7,17 +7,17 @@
                placeholder="Article title">
       </div>
       <div class="app-field">
-        <input class="app-input" v-model="article.question"
+        <input class="app-input" v-model="article.description"
                type="text"
                placeholder="What's this article about?">
       </div>
       <div class="app-field">
-        <textarea class="app-textarea" v-model="article.description"
+        <textarea class="app-textarea" v-model="article.body"
                   type="text"
                   placeholder="Write your article(in markdown)"></textarea>
       </div>
       <div class="app-field">
-        <input class="app-input" v-model="article.tags"
+        <input class="app-input" v-model="article.tagList"
                type="text"
                placeholder="Enter tags">
       </div>
@@ -30,6 +30,7 @@
 
 <script>
 import ButtonTemplate from '@/components/elements/buttonTemplate.vue';
+import articlesApi from '@/api/articles/articlesApi';
 
 export default {
   name: 'articlePage',
@@ -40,9 +41,9 @@ export default {
     return {
       article: {
         title: '',
-        question: '',
         description: '',
-        tags: '',
+        body: '',
+        tagList: '',
       },
     };
   },
@@ -67,7 +68,11 @@ export default {
   },
   methods: {
     publishArticle() {
-      console.log('publishArticle');
+      this.article.tagList = this.article.tagList.split(' ');
+      articlesApi.createArticle(this.article).then()
+        .catch((e) => {
+          console.error(e);
+        });
     },
   },
 };

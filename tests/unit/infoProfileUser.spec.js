@@ -7,7 +7,7 @@ localVue.use(Vuex);
 const store = new Vuex.Store({});
 
 describe('infoProfileUser.vue', () => {
-  it('renders information of infoProfileUser in the component', () => {
+  test('snapshot', () => {
     const $store = {
       state: {
         userInfo: 1,
@@ -25,5 +25,6 @@ describe('infoProfileUser.vue', () => {
     });
     const div = wrapper.find('.app-info-profile');
     expect(div.exists()).toBe(true);
+    expect(wrapper).toMatchSnapshot();
   });
 });

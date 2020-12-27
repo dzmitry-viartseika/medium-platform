@@ -1,0 +1,256 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`headerTemplate.vue snapshot 1`] = `
+<ul class="app-pagination">
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      1
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      2
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      3
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      4
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      5
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      6
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      7
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      8
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      9
+    </router-link>
+  </li>
+  <li class="app-pagination__item app-pagination__item_active">
+    <router-link to="[object Object]" tag="div">
+      10
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      11
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      12
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      13
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      14
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      15
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      16
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      17
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      18
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      19
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      20
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      21
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      22
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      23
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      24
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      25
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      26
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      27
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      28
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      29
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      30
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      31
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      32
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      33
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      34
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      35
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      36
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      37
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      38
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      39
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      40
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      41
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      42
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      43
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      44
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      45
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      46
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      47
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      48
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      49
+    </router-link>
+  </li>
+  <li class="app-pagination__item">
+    <router-link to="[object Object]" tag="div">
+      50
+    </router-link>
+  </li>
+</ul>
+`;

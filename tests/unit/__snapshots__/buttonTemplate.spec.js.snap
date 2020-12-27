@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonTemplate.vue snapshot 1`] = `
+<button class="app-button">
+  <!----> <span>
+      Sign in
+    </span>
+</button>
+`;
