@@ -25,7 +25,7 @@
         </div>
       </div>
     <div class="app-preview-footer">
-      <div class="app-preview-footer__btn">Read more</div>
+      <div class="app-preview-footer__btn" @click="readMoreArticle(slug)">Read more</div>
       <div class="app-preview-footer__tags">
         <div class="app-preview-footer__tags-item" v-for="tag in tags" :key="tag">
           {{ tag }}
@@ -48,6 +48,9 @@ export default {
     },
   },
   computed: {
+    slug() {
+      return get(this.item, 'slug', '');
+    },
     image() {
       return get(this.item, 'author.image', '');
     },
@@ -71,6 +74,11 @@ export default {
     },
     tags() {
       return get(this.item, 'tagList', []);
+    },
+  },
+  methods: {
+    readMoreArticle(slug) {
+      this.$router.push({ path: `/article/${slug}` });
     },
   },
 };
