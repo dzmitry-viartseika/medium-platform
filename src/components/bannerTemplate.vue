@@ -1,5 +1,5 @@
 <template>
-  <div class="app-banner">
+  <div class="app-banner" v-if="Object.keys(bannerInfo).length">
       <h1 class="app-banner__title">
         {{ bannerTitle }}
       </h1>
@@ -54,6 +54,7 @@ export default {
   methods: {
     deleteArticle(slug) {
       articlesApi.deleteArticle(slug);
+      this.$router.push('/');
     },
   },
 };
@@ -67,9 +68,7 @@ export default {
   min-height: 300px;
   padding: 20px;
   width: 100%;
-  text-align: center;
   display: flex;
-  align-items: center;
   flex-direction: column;
   justify-content: center;
 

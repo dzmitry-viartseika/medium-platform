@@ -69,10 +69,11 @@ export default {
   methods: {
     publishArticle() {
       this.article.tagList = this.article.tagList.split(' ');
-      articlesApi.createArticle(this.article).then()
-        .catch((e) => {
-          console.error(e);
-        });
+      articlesApi.createArticle(this.article).then(() => {
+        this.$router.push('/');
+      }).catch((e) => {
+        console.error(e);
+      });
     },
   },
 };
