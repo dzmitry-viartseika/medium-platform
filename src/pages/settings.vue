@@ -21,7 +21,7 @@
                type="email"
                placeholder="Email">
       </div>
-      <div class="app-field">
+      <div class="app-field" v-if="false">
         <input class="app-input" v-model="userInfo.password"
                type="password"
                placeholder="Password">
