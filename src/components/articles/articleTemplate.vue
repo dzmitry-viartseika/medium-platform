@@ -40,7 +40,6 @@ export default {
       return this.item;
     },
     bannerTitle() {
-      console.log('this.item', this.item);
       return get(this.bannerInfo, 'article.title', '');
     },
     bannerSlugList() {
@@ -55,6 +54,7 @@ export default {
     },
   },
   beforeMount() {
+    console.log('this.$router', this.$route);
     const { slug } = this.$route.params;
     const limit = 10;
     const offset = 0;

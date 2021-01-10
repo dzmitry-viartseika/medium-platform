@@ -4,7 +4,6 @@ const axios = require('axios');
 
 export default {
   deleteArticle(slug) {
-    console.log('slug', slug);
     const jwtToken = localStorage.getItem('jwtToken');
     const instWithCred = axios.create({
       headers: {
@@ -23,7 +22,6 @@ export default {
       baseURL: domain.AUTH_API,
     });
     if (slug) {
-      console.log('weeee');
       return instWithCred.get(`articles/${slug}`);
     }
     return instWithCred.get(`articles?limit=${limit}&offset=${offset}`);
@@ -48,5 +46,17 @@ export default {
       baseURL: domain.AUTH_API,
     });
     return instWithCred.post('articles', { article });
+  },
+  updateArticle(slug, article) {
+    console.log('slug', slug);
+    console.log('article', article);
+    const jwtToken = localStorage.getItem('jwtToken');
+    const instWithCred = axios.create({
+      headers: {
+        authorization: `Token ${jwtToken}`,
+      },
+      baseURL: domain.AUTH_API,
+    });
+    return instWithCred.put(`articles/${slug}`, { article });
   },
 };

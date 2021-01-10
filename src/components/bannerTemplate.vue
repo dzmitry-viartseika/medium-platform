@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="app-banner-row__buttons">
-        <button class="app-button">Edit Article</button>
+        <button class="app-button" @click="editArticle()">Edit Article</button>
         <button class="app-button" @click="deleteArticle(slug)">Delete Article</button>
       </div>
     </div>
@@ -55,6 +55,9 @@ export default {
     deleteArticle(slug) {
       articlesApi.deleteArticle(slug);
       this.$router.push('/');
+    },
+    editArticle() {
+      this.$router.push('/articleEdit');
     },
   },
 };

@@ -5,6 +5,7 @@ import signupPage from '@/pages/signupPage.vue';
 import loginPage from '@/pages/loginPage.vue';
 import settings from '@/pages/settings.vue';
 import articlePage from '@/pages/articlePage.vue';
+import articleEdit from '@/pages/articleEdit.vue';
 import articleTemplate from '@/components/articles/articleTemplate.vue';
 
 Vue.use(VueRouter);
@@ -34,6 +35,11 @@ const routes = [
     path: '/article',
     name: 'articlePage',
     component: articlePage,
+  },
+  {
+    path: '/article/:slug',
+    name: 'articleEdit',
+    component: articleEdit,
   },
   {
     path: '/article/:slug',
