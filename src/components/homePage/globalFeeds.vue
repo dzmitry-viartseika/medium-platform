@@ -8,7 +8,6 @@
       :url="baseUrl"
       @update="getFeed"
     />
-    currentPage={{ currentPage }}
   </div>
 </template>
 
@@ -46,7 +45,6 @@ export default {
       return +(this.$route.query.page || '1');
     },
     baseUrl() {
-      console.log('this.$route', this.$route);
       return this.$route.path;
     },
   },

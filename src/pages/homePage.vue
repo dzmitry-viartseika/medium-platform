@@ -1,11 +1,13 @@
 <template>
   <div class="app-main">
       <div class="app-main__left">
+        <loaderTemplate v-if="loader" />
         <tabTemplate :tabList="tabList" :activeTab="activeTab" @setActiveTab="setActiveTab"/>
         <div class="app-main-preview">
           <myFeed v-if="activeTab === 'Your Feed'" :myArticles="myArticles"/>
           <globalFeeds :globalArticles="globalArticles"
                        @getAllGlobalArticles="getAllGlobalArticles"
+                       :loader.sync="loader"
                        v-else/>
         </div>
       </div>
@@ -23,6 +25,7 @@ import tabTemplate from '@/components/homePage/tabTemplate.vue';
 import myFeed from '@/components/homePage/myFeed.vue';
 import globalFeeds from '@/components/homePage/globalFeeds.vue';
 import articlesApi from '@/api/articles/articlesApi';
+import loaderTemplate from '@/components/elements/loaderTemplate.vue';
 
 export default {
   name: 'HomePage',
@@ -31,6 +34,7 @@ export default {
     tabTemplate,
     globalFeeds,
     myFeed,
+    loaderTemplate,
   },
   data() {
     return {
@@ -39,13 +43,17 @@ export default {
       activeTab: 'Your Feed',
       globalArticles: {},
       myArticles: {},
+      loader: false,
     };
   },
   beforeMount() {
+    this.loader = true;
     tagsApi.getTagsList().then((resp) => {
+      this.loader = false;
       this.tagsList = resp.data.tags;
     }).catch((e) => {
-      console.log(e);
+      this.loader = false;
+      console.error(e);
     });
   },
   methods: {
