@@ -58,9 +58,26 @@ export default {
   },
   methods: {
     clickEvent(tag) {
-      console.log('tag', tag);
+      const limit = 10;
+      const offset = 0;
+      const { slug } = this.$route.params;
+      if (this.tabList.length === 3) {
+        this.tabList.pop();
+      }
+      articlesApi.getAllGlobalArticles(limit, offset, slug, tag).then((resp) => {
+        console.log(' resp.data', resp.data);
+        const hashTag = `#${tag}`;
+        this.tabList.push(hashTag);
+        this.activeTab = hashTag;
+        this.globalArticles = resp.data;
+      }).catch((e) => {
+        console.error(e);
+      });
     },
     setActiveTab(tab) {
+      if (this.tabList.length === 3) {
+        this.tabList.pop();
+      }
       this.activeTab = tab;
       if (tab === 'Your Feed') {
         this.getMyArticles();
