@@ -96,9 +96,6 @@ export default {
       return get(this.item, 'tagList', []);
     },
   },
-  beforeMount() {
-    console.log('item', this.item);
-  },
   methods: {
     readMoreArticle(slug) {
       this.$router.push({ path: `/article/${slug}` });
