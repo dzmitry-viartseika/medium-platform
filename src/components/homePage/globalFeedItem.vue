@@ -13,7 +13,9 @@
           </div>
         </div>
         <div class="app-preview-header__follow">
-          {{ favoritesCount }}
+         <articleCount :isfavorited="isfavorited"
+                       :favoritesCount="favoritesCount"
+                       @handleLike="handleLike"/>
         </div>
       </div>
       <div class="app-preview-content">
@@ -37,10 +39,15 @@
 
 <script>
 import { get } from 'lodash';
+import articleCount from '@/components/articles/articleCount.vue';
+import articlesApi from '@/api/articles/articlesApi';
 import moment from 'moment';
 
 export default {
   name: 'globalFeedItem',
+  components: {
+    articleCount,
+  },
   props: {
     item: {
       type: Object,
@@ -69,16 +76,46 @@ export default {
     description() {
       return get(this.item, 'description', '');
     },
-    favoritesCount() {
-      return get(this.item, 'favoritesCount', '');
+    favoritesCount: {
+      get() {
+        return get(this.item, 'favoritesCount', 0);
+      },
+      set(data) {
+        this.item.favoritesCount = data;
+      },
+    },
+    isfavorited: {
+      get() {
+        return get(this.item, 'favorited', 0);
+      },
+      set(data) {
+        this.item.favorited = data;
+      },
     },
     tags() {
       return get(this.item, 'tagList', []);
     },
   },
+  beforeMount() {
+    console.log('item', this.item);
+  },
   methods: {
     readMoreArticle(slug) {
       this.$router.push({ path: `/article/${slug}` });
+    },
+    handleLike() {
+      if (this.isfavorited) {
+        if (this.favoritesCount < 0) {
+          this.favoritesCount = 0;
+        } else {
+          this.favoritesCount -= 1;
+          articlesApi.removeFromFavorite(this.slug);
+        }
+      } else {
+        this.favoritesCount += 1;
+        articlesApi.addToFavorite(this.slug);
+      }
+      this.isfavorited = !this.isfavorited;
     },
   },
 };

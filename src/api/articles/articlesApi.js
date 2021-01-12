@@ -25,7 +25,6 @@ export default {
       return instWithCred.get(`articles/${slug}`);
     }
     if (tag) {
-      console.log('tag', tag);
       return instWithCred.get(`articles?limit=${limit}&offset=${offset}&tag=${tag}`);
     }
     return instWithCred.get(`articles?limit=${limit}&offset=${offset}`);
@@ -41,7 +40,6 @@ export default {
     return instWithCred.get(`articles/feed?limit=${limit}&offset=${offset}`);
   },
   createArticle(article) {
-    console.log('article', article);
     const jwtToken = localStorage.getItem('jwtToken');
     const instWithCred = axios.create({
       headers: {
@@ -52,8 +50,6 @@ export default {
     return instWithCred.post('articles', { article });
   },
   updateArticle(slug, article) {
-    console.log('slug', slug);
-    console.log('article', article);
     const jwtToken = localStorage.getItem('jwtToken');
     const instWithCred = axios.create({
       headers: {
@@ -62,5 +58,25 @@ export default {
       baseURL: domain.AUTH_API,
     });
     return instWithCred.put(`articles/${slug}`, { article });
+  },
+  addToFavorite(slug) {
+    const jwtToken = localStorage.getItem('jwtToken');
+    const instWithCred = axios.create({
+      headers: {
+        authorization: `Token ${jwtToken}`,
+      },
+      baseURL: domain.AUTH_API,
+    });
+    return instWithCred.post(`articles/${slug}/favorite`);
+  },
+  removeFromFavorite(slug) {
+    const jwtToken = localStorage.getItem('jwtToken');
+    const instWithCred = axios.create({
+      headers: {
+        authorization: `Token ${jwtToken}`,
+      },
+      baseURL: domain.AUTH_API,
+    });
+    return instWithCred.delete(`articles/${slug}/favorite`);
   },
 };
