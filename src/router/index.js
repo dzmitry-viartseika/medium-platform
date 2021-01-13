@@ -7,6 +7,7 @@ import settings from '@/pages/settings.vue';
 import articlePage from '@/pages/articlePage.vue';
 import articleEdit from '@/pages/articleEdit.vue';
 import articleTemplate from '@/components/articles/articleTemplate.vue';
+import userProfile from '@/components/profile/userProfile.vue';
 
 Vue.use(VueRouter);
 
@@ -45,6 +46,11 @@ const routes = [
     path: '/article/:slug',
     name: 'article',
     component: articleTemplate,
+  },
+  {
+    path: '/profiles/:slug',
+    name: 'userProfile',
+    component: userProfile,
   },
   // {
   //   path: '/about',

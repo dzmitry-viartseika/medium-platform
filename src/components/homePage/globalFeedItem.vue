@@ -5,7 +5,7 @@
           <img :src="image" alt="photo">
         </div>
         <div class="app-preview-header__info">
-          <div class="app-preview-header__info-username">
+          <div class="app-preview-header__info-username" @click="proceedTo(username)">
             {{ username }}
           </div>
           <div class="app-preview-header__info-date">
@@ -97,6 +97,11 @@ export default {
     },
   },
   methods: {
+    proceedTo(username) {
+      this.$router.push({
+        path: `/profiles/${username}`,
+      });
+    },
     readMoreArticle(slug) {
       this.$router.push({ path: `/article/${slug}` });
     },
