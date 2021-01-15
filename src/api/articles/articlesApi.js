@@ -13,7 +13,7 @@ export default {
     });
     return instWithCred.delete(`articles/${slug}`);
   },
-  getAllGlobalArticles(limit = 10, offset = 0, slug, tag) {
+  getAllGlobalArticles(limit = 10, offset = 0, slug, tag = '', author) {
     const jwtToken = localStorage.getItem('jwtToken');
     const instWithCred = axios.create({
       headers: {
@@ -26,6 +26,10 @@ export default {
     }
     if (tag) {
       return instWithCred.get(`articles?limit=${limit}&offset=${offset}&tag=${tag}`);
+    }
+    if (author) {
+      console.log('author');
+      return instWithCred.get(`articles?author=${author}&limit=${limit}&offset=${offset}`);
     }
     return instWithCred.get(`articles?limit=${limit}&offset=${offset}`);
   },
