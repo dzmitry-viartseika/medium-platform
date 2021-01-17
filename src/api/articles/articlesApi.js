@@ -13,6 +13,28 @@ export default {
     });
     return instWithCred.delete(`articles/${slug}`);
   },
+  getAuthorArticles(limit = 10, offset = 0, author) {
+    console.log('author', author);
+    const jwtToken = localStorage.getItem('jwtToken');
+    const instWithCred = axios.create({
+      headers: {
+        authorization: `Token ${jwtToken}`,
+      },
+      baseURL: domain.AUTH_API,
+    });
+    return instWithCred.get(`articles?author=${author}&limit=${limit}&offset=${offset}`);
+  },
+  getFavoritesArticles(limit = 10, offset = 0, favorited) {
+    console.log('favorited', favorited);
+    const jwtToken = localStorage.getItem('jwtToken');
+    const instWithCred = axios.create({
+      headers: {
+        authorization: `Token ${jwtToken}`,
+      },
+      baseURL: domain.AUTH_API,
+    });
+    return instWithCred.get(`articles?favorited=${favorited}&limit=${limit}&offset=${offset}`);
+  },
   getAllGlobalArticles(limit = 10, offset = 0, slug, tag = '', author) {
     const jwtToken = localStorage.getItem('jwtToken');
     const instWithCred = axios.create({

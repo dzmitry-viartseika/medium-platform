@@ -73,26 +73,37 @@ export default {
     },
   },
   beforeMount() {
+    console.log('path', this.$route.path);
     const { slug } = this.$route.params;
     profileApi.getUserProfile(slug).then((resp) => {
       this.userProfile = resp.data.profile;
-      console.log('userProfile', this.userProfile);
     }).catch((e) => {
       console.error(e);
     });
+    this.getMyArticles();
   },
   methods: {
     proceedTo() {
       this.$router.push('/settings');
     },
+    getMyArticles() {
+      const limit = 10;
+      const offset = 0;
+      const { slug } = this.$route.params;
+      console.log('author', slug);
+      articlesApi.getAuthorArticles(limit, offset, slug).then((resp) => {
+        console.log('resp.data', resp.data.articles);
+        this.myArticles = resp.data.articles;
+      }).catch((e) => {
+        console.error(e);
+      });
+    },
     getAllGlobalArticles() {
       const { slug } = this.$route.params;
       const limit = 10;
       const offset = 0;
-      const author = slug;
-      const tag = '';
-      const slugs = '';
-      articlesApi.getAllGlobalArticles(limit, offset, slugs, tag, author).then((resp) => {
+      const favorited = slug;
+      articlesApi.getFavoritesArticles(limit, offset, favorited).then((resp) => {
         this.globalArticles = resp.data;
       }).catch((e) => {
         console.error(e);

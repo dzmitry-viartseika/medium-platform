@@ -1,13 +1,16 @@
 <template>
   <div class="app-feeds">
-    <template v-if="!globalArticlesList.length">
+    <template v-if="!myArticles.length">
       No articles are here... yet.
+    </template>
+    <template v-else>
+      <globalFeedItem :item="item" v-for="item in myArticles" :key="item.createdAt"/>
     </template>
   </div>
 </template>
 
 <script>
-import { get } from 'lodash';
+import globalFeedItem from '@/components/homePage/globalFeedItem.vue';
 
 export default {
   name: 'myFeed',
@@ -17,10 +20,11 @@ export default {
       default: () => {},
     },
   },
-  computed: {
-    globalArticlesList() {
-      return get(this.myArticles, 'articles', []);
-    },
+  components: {
+    globalFeedItem,
+  },
+  beforeMount() {
+    console.log('myArticles', this.myArticles.length);
   },
 };
 </script>
