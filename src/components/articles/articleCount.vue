@@ -17,9 +17,6 @@ export default {
       default: 0,
     },
   },
-  beforeMount() {
-    console.log('favoritesCount', this.favoritesCount);
-  },
   computed: {
     favoritesCountOptimistic() {
       return this.favoritesCount;

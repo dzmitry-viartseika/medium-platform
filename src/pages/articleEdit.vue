@@ -68,11 +68,9 @@ export default {
   },
   beforeMount() {
     const { slug } = this.$route.params;
-    console.log('slug', slug);
     const limit = 10;
     const offset = 0;
     articlesApi.getAllGlobalArticles(limit, offset, slug).then((resp) => {
-      console.log('resp.data', resp.data);
       const { article } = resp.data;
       this.article.title = article.title;
       this.article.description = article.description;
@@ -85,7 +83,6 @@ export default {
   methods: {
     publishArticle() {
       const { slug } = this.$route.params;
-      console.log('slug', slug);
       articlesApi.updateArticle(slug, this.article).then(() => {
         this.$router.push('/');
       }).catch((e) => {

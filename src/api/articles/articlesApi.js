@@ -28,7 +28,6 @@ export default {
       return instWithCred.get(`articles?limit=${limit}&offset=${offset}&tag=${tag}`);
     }
     if (author) {
-      console.log('author');
       return instWithCred.get(`articles?author=${author}&limit=${limit}&offset=${offset}`);
     }
     return instWithCred.get(`articles?limit=${limit}&offset=${offset}`);

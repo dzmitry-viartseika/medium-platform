@@ -54,7 +54,6 @@ export default {
     },
   },
   beforeMount() {
-    console.log('this.$router', this.$route);
     const { slug } = this.$route.params;
     const limit = 10;
     const offset = 0;

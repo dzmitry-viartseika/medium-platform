@@ -14,7 +14,6 @@ export default {
     return instWithCred.get('/user');
   },
   updateUser(user) {
-    console.log('user', user);
     const jwtToken = JSON.parse(localStorage.getItem('jwtToken'));
     const instWithCred = axios.create({
       headers: {

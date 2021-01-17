@@ -65,7 +65,6 @@ export default {
         this.tabList.pop();
       }
       articlesApi.getAllGlobalArticles(limit, offset, slug, tag).then((resp) => {
-        console.log(' resp.data', resp.data);
         const hashTag = `#${tag}`;
         this.tabList.push(hashTag);
         this.activeTab = hashTag;

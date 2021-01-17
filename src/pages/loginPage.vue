@@ -105,19 +105,16 @@ export default {
       this.$router.push('/signup');
     },
     login() {
-      console.log('login');
       this.$validator.validateAll({
         password: this.user.password,
         email: this.user.email,
       }).then((result) => {
         if (result) {
           authApi.loginUser(this.user).then((resp) => {
-            console.log('resp', resp);
             this.$store.dispatch('setUserInfo', resp.data);
             this.$router.push('/');
           }).catch((e) => {
             console.error(e);
-            console.log('e.response.data.errors', e.response.data.errors);
             const text = e.response.data.errors;
             console.log('text', text);
             this.validationMessage = {
