@@ -73,7 +73,6 @@ export default {
     },
   },
   beforeMount() {
-    console.log('path', this.$route.path);
     const { slug } = this.$route.params;
     profileApi.getUserProfile(slug).then((resp) => {
       this.userProfile = resp.data.profile;
@@ -90,9 +89,7 @@ export default {
       const limit = 10;
       const offset = 0;
       const { slug } = this.$route.params;
-      console.log('author', slug);
       articlesApi.getAuthorArticles(limit, offset, slug).then((resp) => {
-        console.log('resp.data', resp.data.articles);
         this.myArticles = resp.data.articles;
       }).catch((e) => {
         console.error(e);

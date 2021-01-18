@@ -14,7 +14,6 @@ export default {
     return instWithCred.delete(`articles/${slug}`);
   },
   getAuthorArticles(limit = 10, offset = 0, author) {
-    console.log('author', author);
     const jwtToken = localStorage.getItem('jwtToken');
     const instWithCred = axios.create({
       headers: {
@@ -25,7 +24,6 @@ export default {
     return instWithCred.get(`articles?author=${author}&limit=${limit}&offset=${offset}`);
   },
   getFavoritesArticles(limit = 10, offset = 0, favorited) {
-    console.log('favorited', favorited);
     const jwtToken = localStorage.getItem('jwtToken');
     const instWithCred = axios.create({
       headers: {

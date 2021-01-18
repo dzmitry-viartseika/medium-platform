@@ -121,7 +121,6 @@ export default {
               status: true,
               text: ['email or password'],
             };
-            console.log('validationMessage', this.validationMessage);
             setTimeout(() => {
               this.validationMessage = {
                 status: false,

@@ -23,9 +23,6 @@ export default {
   components: {
     globalFeedItem,
   },
-  beforeMount() {
-    console.log('myArticles', this.myArticles.length);
-  },
 };
 </script>
 
